@@ -267,7 +267,7 @@ class User{
             $db = DB::get();
             
             $q = "SELECT Users.UserId, Users.Email, Users.FirstName, Users.LastName, Users.PhotoUrl, 
-        		    Users.Role, Users.Language, Users.IsActive, Users.SiteAdmin, Users.SiteId, Users.Created
+        		    Users.Role, Users.Language, Users.IsActive, Users.SiteAdmin, Users.SiteId, Users.Created, Users.IsSimpleUser
     			    FROM Users
     			    WHERE Users.SiteId=? ORDER BY Users.LastName";
                     
@@ -298,7 +298,7 @@ class User{
             $db = DB::get();
             
             $q = "SELECT UserId, Email, Password, FirstName, LastName, PhotoUrl,
-            		Role, Language, IsActive, SiteAdmin, SiteId, Created, Token 
+            		Role, Language, IsActive, SiteAdmin, SiteId, Created, IsSimpleUser, Token 
         			FROM Users WHERE Email=? AND SiteId=? AND IsActive = 1";
             
             $s = $db->prepare($q);
@@ -344,7 +344,7 @@ class User{
     		$db = DB::get();
             
             $q = "SELECT UserId, Email, Password, FirstName, LastName, PhotoUrl,
-            		Role, Language, IsActive, SiteAdmin, SiteId, Created, Token 
+            		Role, Language, IsActive, SiteAdmin, SiteId, Created, IsSimpleUser, Token 
         			FROM Users WHERE Email=? AND SiteId=?";
                     
             $s = $db->prepare($q);
@@ -373,7 +373,7 @@ class User{
     		$db = DB::get();
             
             $q = "SELECT UserId, Email, Password, FirstName, LastName, PhotoUrl,
-            		Role, Language, IsActive, SiteAdmin, SiteId, Created 
+            		Role, Language, IsActive, SiteAdmin, SiteId, Created, IsSimpleUser 
         			FROM Users WHERE Token=? AND SiteId=?";
                     
             $s = $db->prepare($q);
@@ -402,7 +402,7 @@ class User{
             $db = DB::get();
             
             $q = "SELECT UserId, Email, Password, FirstName, LastName, PhotoUrl,
-            		Role, Language, IsActive, SiteAdmin, SiteId, Created, Token 
+            		Role, Language, IsActive, SiteAdmin, SiteId, Created, IsSimpleUser, Token 
         			FROM Users WHERE UserId=?";
                     
             $s = $db->prepare($q);

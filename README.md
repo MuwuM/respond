@@ -7,11 +7,13 @@ Learn more about Respond CMS at: http://respondcms.com
 
 View our documentation at: http://respondcms.com/learn
 
-New in version 5.2:
+New in version ??:
 - More themes
 - Bug Fixes
 
-Upgrading from version 5.1
+Upgrading from version 5.3
+- Update database
+ ALTER TABLE `Users` ADD `IsSimpleUser` INT(11) NOT NULL DEFAULT '0' ;
 - Pull (or download) the latest version
 - Upgrade sites
 
