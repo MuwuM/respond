@@ -31,7 +31,12 @@ class PageAddResource extends Tonic\Resource {
             $name = $request['name'];
             $friendlyId = $request['friendlyId'];
             $description = $request['description'];
-			
+		
+			$beginDate = $request['beginDate'];
+			$endDate = $request['endDate'];
+			$location = $request['location'];
+			$latitude = $request['latitude'];
+			$longitude = $request['longitude'];
 			
             
             // set timezone
@@ -58,7 +63,7 @@ class PageAddResource extends Tonic\Resource {
             }
 
 			// add page
-            $page = Page::Add($friendlyId, $name, $description, $layout, $stylesheet, $pageTypeId, $token->SiteId, $token->UserId);
+            $page = Page::Add($friendlyId, $name, $description, $layout, $stylesheet, $pageTypeId, $token->SiteId, $token->UserId,$beginDate, $endDate, $timeZone, $location, $latitude, $longitude);
             
             // set content (if pageId set)
             if(isset($request['pageId'])){
@@ -75,22 +80,6 @@ class PageAddResource extends Tonic\Resource {
             	$existing_page['Layout'], $existing_page['Stylesheet'], $existing_page['IncludeOnly'], $token->UserId);
             
             }
-			if( isset($request['beginDate']) || isset($request['endDate']) || isset($request['location']) || isset($request['latitude']) || isset($request['longitude']) ){
-				
-				$beginDate = $request['beginDate'];
-				$endDate = $request['endDate'];
-				$location = $request['location'];
-				$latitude = $request['latitude'];
-				$longitude = $request['longitude'];
-            	// get existing page
-            	$page_data = Page::GetByPageId($page['PageId']);
-  
-				Page::EditSettings($page['PageId'], $page_data['Name'], $page_data['FriendlyId'], $page_data['Description'], $page_data['Keywords'], $page_data['Callout'], 
-            	$beginDate, $endDate, $timeZone,
-            	$location, $latitude, $longitude,
-            	$page_data['Layout'], $page_data['Stylesheet'], $page_data['IncludeOnly'], $token->UserId);
-            
-			}
             
             $fullName = $user['FirstName'].' '.$user['LastName'];
             $row['LastModifiedFullName'] = $fullName;

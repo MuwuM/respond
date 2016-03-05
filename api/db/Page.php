@@ -4,7 +4,7 @@
 class Page{
     
 	// adds a page
-	public static function Add($friendlyId, $name, $description, $layout, $stylesheet, $pageTypeId, $siteId, $lastModifiedBy){
+	public static function Add($friendlyId, $name, $description, $layout, $stylesheet, $pageTypeId, $siteId, $lastModifiedBy, $beginDate, $endDate, $timeZone, $location, $latitude, $longitude){
 		
         try{
             
@@ -24,9 +24,33 @@ class Page{
     		$tags = '';
     		$callout = '';
     		$timestamp = gmdate("Y-m-d H:i:s", time());
+			
+			
+			$gm_bdate = null;
+			
+			if(trim($beginDate) != ''){
+				$time = strtotime($beginDate.' '.$timeZone);
+				
+				$gm_bdate = gmdate("Y-m-d H:i:s", $time);
+			}
+			
+			$gm_edate = null;
+			
+			if(trim($endDate) != ''){
+				$time = strtotime($endDate.' '.$timeZone);
+			
+				$gm_edate = gmdate("Y-m-d H:i:s", $time);
+			}
+			
+			$latLong = '';
+			
+			if($latitude != '' && $longitude != ''){
+				$latLong = 'POINT(' . $latitude . " " . $longitude . ')';
+			}
+			
     	
-    		$q = "INSERT INTO Pages (PageId, FriendlyId, Name, Description, Keywords, Tags, Callout, Layout, Stylesheet, PageTypeId, SiteId, LastModifiedBy, LastModifiedDate, Created, IsActive, Image) 
-    			    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    		$q = "INSERT INTO Pages (PageId, FriendlyId, Name, Description, Keywords, Tags, Callout, Layout, Stylesheet, PageTypeId, SiteId, LastModifiedBy, LastModifiedDate, Created, IsActive, Image, BeginDate = ?, EndDate = ?, Location = ?, LatLong = PointFromText(?)) 
+    			    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
             $s = $db->prepare($q);
             $s->bindParam(1, $pageId);
@@ -45,6 +69,10 @@ class Page{
             $s->bindParam(14, $timestamp);
             $s->bindParam(15, $isActive);
             $s->bindParam(16, $image);
+            $s->bindParam(17, $gm_bdate);
+            $s->bindParam(18, $gm_edate);
+            $s->bindParam(19, $location);
+            $s->bindParam(20, $latLong);
             
             $s->execute();
             
