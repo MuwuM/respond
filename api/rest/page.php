@@ -31,6 +31,11 @@ class PageAddResource extends Tonic\Resource {
             $name = $request['name'];
             $friendlyId = $request['friendlyId'];
             $description = $request['description'];
+			
+			
+            
+            // set timezone
+            $timeZone = $site['TimeZone'];
             
             
 			// check permissions
@@ -63,9 +68,29 @@ class PageAddResource extends Tonic\Resource {
             	
             	// set content for page						
 				Page::EditContent($page['PageId'], $existing_page['Content'], $token->UserId);
+				
+				Page::EditSettings($page['PageId'], $existing_page['Name'], $existing_page['FriendlyId'], $existing_page['Description'], $existing_page['Keywords'], $existing_page['Callout'], 
+            	$beginDate, $endDate, $timeZone,
+            	$location, $latitude, $longitude,
+            	$existing_page['Layout'], $existing_page['Stylesheet'], $existing_page['IncludeOnly'], $token->UserId);
             
             }
+			if( isset($request['beginDate']) || isset($request['endDate']) || isset($request['location']) || isset($request['latitude']) || isset($request['longitude']) ){
+				
+				$beginDate = $request['beginDate'];
+				$endDate = $request['endDate'];
+				$location = $request['location'];
+				$latitude = $request['latitude'];
+				$longitude = $request['longitude'];
+            	// get existing page
+            	$page_data = Page::GetByPageId($page['PageId']);
+  
+				Page::EditSettings($page['PageId'], $page_data['Name'], $page_data['FriendlyId'], $page_data['Description'], $page_data['Keywords'], $page_data['Callout'], 
+            	$beginDate, $endDate, $timeZone,
+            	$location, $latitude, $longitude,
+            	$page_data['Layout'], $page_data['Stylesheet'], $page_data['IncludeOnly'], $token->UserId);
             
+			}
             
             $fullName = $user['FirstName'].' '.$user['LastName'];
             $row['LastModifiedFullName'] = $fullName;
