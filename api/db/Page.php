@@ -49,8 +49,7 @@ class Page{
 			}
 			
     	
-    		$q = "INSERT INTO Pages (PageId, FriendlyId, Name, Description, Keywords, Tags, Callout, Layout, Stylesheet, PageTypeId, SiteId, LastModifiedBy, LastModifiedDate, Created, IsActive, Image, BeginDate, EndDate) 
-    			    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    		$q = "INSERT INTO Pages (PageId, FriendlyId, Name, Description, Keywords, Tags, Callout, Layout, Stylesheet, PageTypeId, SiteId, LastModifiedBy, LastModifiedDate, Created, IsActive, Image, BeginDate, EndDate) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
             $s = $db->prepare($q);
             $s->bindParam(1, $pageId);

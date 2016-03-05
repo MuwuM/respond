@@ -72,13 +72,7 @@ class PageAddResource extends Tonic\Resource {
             	$existing_page = Page::GetByPageId($request['pageId']);
             	
             	// set content for page						
-				Page::EditContent($page['PageId'], $existing_page['Content'], $token->UserId);
-				
-				Page::EditSettings($page['PageId'], $existing_page['Name'], $existing_page['FriendlyId'], $existing_page['Description'], $existing_page['Keywords'], $existing_page['Callout'], 
-            	$beginDate, $endDate, $timeZone,
-            	$location, $latitude, $longitude,
-            	$existing_page['Layout'], $existing_page['Stylesheet'], $existing_page['IncludeOnly'], $token->UserId);
-            
+				Page::EditContent($page['PageId'], $existing_page['Content'], $token->UserId);            
             }
             
             $fullName = $user['FirstName'].' '.$user['LastName'];
