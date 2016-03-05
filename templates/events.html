@@ -190,6 +190,7 @@
 					<label for="beginDate">{{'Begin Date' | i18next}}</label>
 					<input id="beginDate" 
 						ng-model="temp.LocalBeginDate"
+						placeholder="YYYY-MM-DD"
 						type="date" class="form-control">
 				</div>
 				
@@ -197,6 +198,7 @@
 					<label for="beginTime">{{'Begin Time' | i18next}}</label>
 					<input id="beginTime" 
 						ng-model="temp.LocalBeginTime"
+						placeholder="00:00"
 						type="time" class="form-control">
 				</div>
 				
@@ -204,6 +206,7 @@
 					<label for="endDate">{{'End Date' | i18next}}</label>
 					<input id="endDate"
 						ng-model="temp.LocalEndDate"
+						placeholder="YYYY-MM-DD"
 						type="date" class="form-control">
 				</div>
 				
@@ -211,10 +214,11 @@
 					<label for="endTime">{{'End Time' | i18next}}</label>
 					<input id="endTime" 
 						ng-model="temp.LocalEndTime"
+						placeholder="00:00"
 						type="time" class="form-control">
 				</div>
 			
-				<div class="form-group">
+				<!--<div class="form-group">
 					<label for="location">{{'Location' | i18next}}</label>
 					<input id="location" 
 						ng-model="temp.Location"
@@ -235,7 +239,7 @@
 						ng-model="temp.Longitude"
 						type="text" class="form-control">
 				</div>				
-				
+				-->
 				<div class="form-group">
 					<label for="page" class="control-label">{{'Create from Existing Page' | i18next}}</label>
 					<select name="page" class="form-control"
