@@ -154,7 +154,8 @@ class UserLoginResource extends Tonic\Resource {
             		'CanPublish' => $canPublish,
             		'CanRemove' => $canRemove,
             		'CanCreate' => $canCreate,
-            		'CanView' => $canView
+            		'CanView' => $canView,
+            		'IsSimpleUser' => $user['IsSimpleUser']
             	);
             
             
