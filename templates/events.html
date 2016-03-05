@@ -186,6 +186,62 @@
 						class="form-control"></textarea>
 				</div>
 				
+				<div id="event-settings" class="context-block hidden">
+		
+				<div class="form-group">
+					<label for="beginDate">{{'Begin Date' | i18next}}</label>
+					<input id="beginDate" 
+						ng-model="temp.LocalBeginDate"
+						type="date" class="form-control">
+				</div>
+				
+				<div class="form-group">
+					<label for="beginTime">{{'Begin Time' | i18next}}</label>
+					<input id="beginTime" 
+						ng-model="temp.LocalBeginTime"
+						type="time" class="form-control">
+				</div>
+				
+				<div class="form-group">
+					<label for="endDate">{{'End Date' | i18next}}</label>
+					<input id="endDate"
+						ng-model="temp.LocalEndDate"
+						type="date" class="form-control">
+				</div>
+				
+				<div class="form-group">
+					<label for="endTime">{{'End Time' | i18next}}</label>
+					<input id="endTime" 
+						ng-model="temp.LocalEndTime"
+						type="time" class="form-control">
+				</div>
+			
+				<div class="form-group">
+					<label for="location">{{'Location' | i18next}}</label>
+					<input id="location" 
+						ng-model="temp.Location"
+						ng-blur="setLocation()"
+						type="text" maxlength="128" class="form-control" placeholder="1234 Main Street, Some City, LA 90210">
+				</div>
+				
+				<div class="form-group">
+					<label for="lat">{{'Latitude' | i18next}}</label>
+					<input id="lat" 
+						ng-model="temp.Latitude"
+						type="text" class="form-control">
+				</div>
+				
+				<div class="form-group">
+					<label for="long">{{'Longitude' | i18next}}</label>
+					<input id="long" 
+						ng-model="temp.Longitude"
+						type="text" class="form-control">
+				</div>
+				
+			</div>
+			<!-- /.context-block -->
+				
+				
 				<div class="form-group">
 					<label for="page" class="control-label">{{'Create from Existing Page' | i18next}}</label>
 					<select name="page" class="form-control"
