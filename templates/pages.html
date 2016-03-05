@@ -15,13 +15,13 @@
 		    <i class="fa fa-ellipsis-v"></i>
 		  </button>
 		  <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="more-menu">
-		  	<li role="presentation"> 
+		  	<li role="presentation" ng-hide="user.IsSimpleUser == 1"> 
     			<a ng-click="showAddPageType()"
     				tabindex="-1">
     				{{'Add Path' | i18next}}
     			</a>
 		  	</li>
-		  	<li ng-if="current.PageTypeId != -1"
+		  	<li ng-if="current.PageTypeId != -1" ng-hide="user.IsSimpleUser == 1"
 		  		role="presentation"> 
     			<a ng-click="showRemovePageType(current)"
     				tabindex="-1">
@@ -109,7 +109,7 @@
 				</span>
     		</h2>
     		
-    		<small>
+    		<small ng-hide="user.IsSimpleUser == 1">
     			{{page.Url}}
 				<span class="tags">
 					<i class="fa fa-tags"></i> 
@@ -186,7 +186,7 @@
 						class="form-control"></textarea>
 				</div>
 				
-				<div class="form-group">
+				<div class="form-group" ng-hide="user.IsSimpleUser == 1">
 					<label for="page" class="control-label">{{'Create from Existing Page' | i18next}}</label>
 					<select name="page" class="form-control"
 						ng-model="temp.PageId">
@@ -385,7 +385,7 @@
 					</select>
 				</div>
 				
-				<div class="form-group">
+				<div class="form-group" ng-hide="user.IsSimpleUser == 1">
 					<label for="pageTypes" class="control-label">{{'Duplicate Pages from Existing Path' | i18next}}</label>
 					<select name="pageTypes" class="form-control"
 						ng-model="temp.PageTypeId">

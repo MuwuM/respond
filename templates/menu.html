@@ -32,7 +32,7 @@
 	</ul>
 	<!-- /.menu -->
 	
-	<h2 id="advanced-configurations" data-toggle="#advanced-menu" class="advanced" ng-if="user.Role == 'Admin'">
+	<h2 id="advanced-configurations" data-toggle="#advanced-menu" class="advanced" ng-if="user.Role == 'Admin'" ng-hide="user.IsSimpleUser == 1">
 		{{'Advanced Configurations' | i18next}}
 		<!-- <a class="republish" ng-click="republish()">{{'Republish' | i18next}} <i class="fa fa-refresh"></i></a> -->
 		<a><i class="fa fa-angle-down"></i></a>
