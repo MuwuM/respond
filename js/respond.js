@@ -105,6 +105,15 @@ angular.module('respond', ['ui.router',
 		    }
 		  }
 		})
+		.state('app.events', {
+		  url: "/events",
+		  views: {
+		    'content' :{
+		      templateUrl: "templates/events.html",
+		      controller: 'PagesCtrl'
+		    }
+		  }
+		})
 		
 		.state('app.content', {
 		  url: "/content/:id",
