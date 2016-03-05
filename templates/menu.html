@@ -23,12 +23,12 @@
 		<li class="menu-pages"><a ui-sref="app.pages" class="hide-menu"><i class="fa fa-file"></i> {{'Pages' | i18next}}</a></li>
 		<li class="menu-events"><a ui-sref="app.events" class="hide-menu"><i class="fa fa-calendar"></i> {{'Events' | i18next}}</a></li>
     	<li class="menu-menu"><a ui-sref="app.menus" class="hide-menu"><i class="fa fa-bars"></i> {{'Menus' | i18next}}</a></li>
-		<li class="menu-theme"><a ui-sref="app.configure" class="hide-menu"><i class="fa fa-desktop"></i> {{'Theme' | i18next}}</a></li>
-    	<li class="menu-branding"><a ui-sref="app.branding" class="hide-menu"><i class="fa fa-certificate"></i> {{'Branding' | i18next}}</a></li>
+		<li class="menu-theme" ng-hide="user.IsSimpleUser == 1"><a ui-sref="app.configure" class="hide-menu"><i class="fa fa-desktop"></i> {{'Theme' | i18next}}</a></li>
+    	<li class="menu-branding" ng-hide="user.IsSimpleUser == 1"><a ui-sref="app.branding" class="hide-menu"><i class="fa fa-certificate"></i> {{'Branding' | i18next}}</a></li>
     	<li class="menu-files"><a ui-sref="app.files" class="hide-menu"><i class="fa fa-folder-open"></i> {{'Files' | i18next}}</a></li>
 		<li class="menu-users"><a ui-sref="app.users" class="hide-menu"><i class="fa fa-user"></i> {{'Users' | i18next}}</a></li>
 		<!--<li class="menu-account"><a ui-sref="app.account"><i class="fa fa-key"></i> {{'Account' | i18next}}</a></li>-->
-		<li ng-if="user.Role == 'Admin'" class="menu-settings"><a ui-sref="app.settings" class="hide-menu"><i class="fa fa-cog"></i> {{'Settings' | i18next}}</a></li>
+		<li ng-if="user.Role == 'Admin'" class="menu-settings" ng-hide="user.IsSimpleUser == 1"><a ui-sref="app.settings" class="hide-menu"><i class="fa fa-cog"></i> {{'Settings' | i18next}}</a></li>
 	</ul>
 	<!-- /.menu -->
 	
@@ -39,7 +39,7 @@
 	</h2>
 	<!-- /.advanced -->
 	
-	<ul id="advanced-menu" class="menu hidden" ng-if="user.Role == 'Admin'">	
+	<ul id="advanced-menu" class="menu hidden" ng-if="user.Role == 'Admin'" ng-hide="user.IsSimpleUser == 1">	
         <li class="menu-layout"><a ui-sref="app.layouts" class="hide-menu"><i class="fa fa-th-large"></i> {{'Layouts' | i18next}}</a></li>	
         <li class="menu-styles"><a ui-sref="app.styles" class="hide-menu"><i class="fa fa-text-height"></i> {{'Styles' | i18next}}</a></li>
         <li class="menu-styles"><a ui-sref="app.scripts" class="hide-menu"><i class="fa fa-bolt"></i> {{'Scripts' | i18next}}</a></li>
