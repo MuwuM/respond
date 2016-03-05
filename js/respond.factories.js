@@ -909,7 +909,13 @@
 				pageTypeId: pageTypeId, 
 				name: toBeAdded.Name, 
 				friendlyId: toBeAdded.FriendlyId, 
-				description: toBeAdded.Description};
+				description: toBeAdded.Description,
+				beginDate: $.trim(utilities.convertToDateString(toBeAdded.LocalBeginDate) + ' ' + utilities.convertToTimeString(toBeAdded.LocalBeginTime)), 
+				endDate: $.trim(utilities.convertToDateString(toBeAdded.LocalEndDate) + ' ' + utilities.convertToTimeString(toBeAdded.LocalEndTime)),
+				location: toBeAdded.location, 
+				latitude: toBeAdded.latitude, 
+				longitude: toBeAdded.longitude
+				};
 				
 			// set page type	
 			if(toBeAdded.PageId != ''){
