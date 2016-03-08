@@ -73,7 +73,7 @@
 				ng-class="{'active': (predicate == 'Name')}">
 				<i class="fa fa-sort-alpha-asc"></i></a>
 			
-			<a ng-show="(pageTypeId != -1 && canEditTypes)"
+			<a ng-show="(pageTypeId != -1 && canEditTypes)" ng-hide="user.IsSimpleUser == 1"
 				ng-click="showEditPageType()">
 				<i class="fa fa-cog"></i>
 			</a>

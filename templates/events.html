@@ -15,13 +15,13 @@
 		    <i class="fa fa-ellipsis-v"></i>
 		  </button>
 		  <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="more-menu">
-		  	<li role="presentation"> 
+		  	<li role="presentation" ng-hide="user.IsSimpleUser == 1"> 
     			<a ng-click="showAddPageType()"
     				tabindex="-1">
     				{{'Add Path' | i18next}}
     			</a>
 		  	</li>
-		  	<li ng-if="current.PageTypeId != -1"
+		  	<li ng-if="current.PageTypeId != -1" ng-hide="user.IsSimpleUser == 1"
 		  		role="presentation"> 
     			<a ng-click="showRemovePageType(current)"
     				tabindex="-1">
@@ -73,7 +73,7 @@
 				ng-class="{'active': (predicate == 'Name')}">
 				<i class="fa fa-sort-alpha-asc"></i></a>
 			
-			<a ng-show="(pageTypeId != -1 && canEditTypes)"
+			<a ng-show="(pageTypeId != -1 && canEditTypes)" ng-hide="user.IsSimpleUser == 1"
 				ng-click="showEditPageType()">
 				<i class="fa fa-cog"></i>
 			</a>
@@ -111,7 +111,7 @@
     		
     		<small>
     			{{page.Url}}
-				<span class="tags">
+				<span class="tags" ng-hide="user.IsSimpleUser == 1">
 					<i class="fa fa-tags"></i> 
 					<a ng-click="showEditTags(page)">{{page.Tags|notags}}</a>
 				</span>
@@ -194,7 +194,7 @@
 						type="date" class="form-control">
 				</div>
 				
-				<div class="form-group">
+				<div class="form-group" ng-hide="user.IsSimpleUser == 1">
 					<label for="beginTime">{{'Begin Time' | i18next}}</label>
 					<input id="beginTime" 
 						ng-model="temp.LocalBeginTime"
@@ -210,7 +210,7 @@
 						type="date" class="form-control">
 				</div>
 				
-				<div class="form-group">
+				<div class="form-group" ng-hide="user.IsSimpleUser == 1">
 					<label for="endTime">{{'End Time' | i18next}}</label>
 					<input id="endTime" 
 						ng-model="temp.LocalEndTime"
