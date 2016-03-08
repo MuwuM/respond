@@ -84,14 +84,14 @@
 						class="form-control"></textarea>
 				</div>
 				
-				<div class="form-group">
+				<div class="form-group" ng-hide="user.IsSimpleUser == 1">
 					<label for="keywords">{{'Keywords' | i18next}}</label>
 					<textarea id="keywords" 
 						ng-model="page.Keywords"
 						class="form-control"></textarea>
 				</div>   
 				
-				<div class="form-group">
+				<div class="form-group" ng-hide="user.IsSimpleUser == 1">
 					<label for="callout">{{'Callout' | i18next}}</label>
 					<input id="callout" 
 						ng-model="page.Callout"
@@ -112,7 +112,7 @@
 						type="date" class="form-control">
 				</div>
 				
-				<div class="form-group">
+				<div class="form-group" ng-hide="user.IsSimpleUser == 1">
 					<label for="beginTime">{{'Begin Time' | i18next}}</label>
 					<input id="beginTime" 
 						ng-model="page.LocalBeginTime"
@@ -126,14 +126,14 @@
 						type="date" class="form-control">
 				</div>
 				
-				<div class="form-group">
+				<div class="form-group" ng-hide="user.IsSimpleUser == 1">
 					<label for="endTime">{{'End Time' | i18next}}</label>
 					<input id="endTime" 
 						ng-model="page.LocalEndTime"
 						type="time" class="form-control">
 				</div>
 			
-				<div class="form-group">
+				<div class="form-group" ng-hide="user.IsSimpleUser == 1">
 					<label for="location">{{'Location' | i18next}}</label>
 					<input id="location" 
 						ng-model="page.Location"
@@ -141,14 +141,14 @@
 						type="text" maxlength="128" class="form-control" placeholder="1234 Main Street, Some City, LA 90210">
 				</div>
 				
-				<div class="form-group">
+				<div class="form-group" ng-hide="user.IsSimpleUser == 1">
 					<label for="lat">{{'Latitude' | i18next}}</label>
 					<input id="lat" 
 						ng-model="page.Latitude"
 						type="text" class="form-control">
 				</div>
 				
-				<div class="form-group">
+				<div class="form-group" ng-hide="user.IsSimpleUser == 1">
 					<label for="long">{{'Longitude' | i18next}}</label>
 					<input id="long" 
 						ng-model="page.Longitude"
@@ -158,9 +158,9 @@
 			</div>
 			<!-- /.context-block -->
 			
-			<h2 data-toggle="#display-settings">{{'Display' | i18next}} <a><i class="fa fa-angle-down"></i></a></h2>
+			<h2 data-toggle="#display-settings" ng-hide="user.IsSimpleUser == 1">{{'Display' | i18next}} <a><i class="fa fa-angle-down"></i></a></h2>
 			
-			<div id="display-settings" class="context-block hidden">
+			<div id="display-settings" class="context-block hidden" ng-hide="user.IsSimpleUser == 1">
 			
 				<div class="form-group">
 					<label for="layout">{{'Layout' | i18next}}</label>

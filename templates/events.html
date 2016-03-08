@@ -240,7 +240,7 @@
 						type="text" class="form-control">
 				</div>				
 				-->
-				<div class="form-group">
+				<div class="form-group" ng-hide="user.IsSimpleUser == 1">
 					<label for="page" class="control-label">{{'Create from Existing Page' | i18next}}</label>
 					<select name="page" class="form-control"
 						ng-model="temp.PageId">
